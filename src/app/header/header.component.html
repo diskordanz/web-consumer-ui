@@ -1,0 +1,69 @@
+<ng2-slim-loading-bar color="cyan"></ng2-slim-loading-bar>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #212121; padding: 5px 40px;">
+    <a class="navbar-brand" href="#" style="margin-right: 40px"><i style="font-size: 30px; color: white;" class="fas fa-beer"> PEVO </i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div style="width: 100%; display:flex; flex-direction:row; justify-content: space-between; align-content: center; align-items: center;">
+    <ul class="navbar-nav mr-auto" style="width: 65%;">
+      <li class="nav-item" style="width: 100%;">
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="btn-group" mdbDropdown>
+
+            
+            <button mdbDropdownToggle type="button" mdbBtn color="default" size="md" class="dropdown-toggle z-depth-0 " mdbWavesEffect 
+            style="color:white; font-size: 20px; height: 50px; padding: 1px 20px; cursor: pointer;border-bottom-left-radius:.5rem;border-top-left-radius:.5rem;">{{selectedCategory.name}}</button>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a *ngFor="let category of categories" (click)="selectCategory(category)" class="dropdown-item" style="padding:8px 30px 8px 10px; cursor: pointer; ">{{category.name}}</a>
+            </div>
+          </div>
+          </div>
+          <input type="text" class="form-control" #searchName style="border-bottom-right-radius:.5rem;border-top-right-radius:.5rem; height: 50px;">
+          <button (click)="search(searchName.value)" class="search-submit" type="button"><i style="margin: 4px; font-size: 25px; color: #212121;" class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+
+      </li>
+
+      <li class="nav-item">
+          <button  style="margin-left: 30px; height: 50px; padding: 1px 20px; border-radius: 0.5rem"  mdbBtn type="button" color="default" mdbWavesEffect><a style="color:white; font-size: 20px;" routerLink="franchises" >Продавцы</a></button>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav" style="display:flex; flex-direction:row; justify-content: flex-end;">
+        <li class="nav-item">
+        <button class="btn" data-toggle="dropdown" style="padding:10px;">
+            <i style="font-size: 31px; color: white;" class="far fa-user"></i>
+        </button>
+            <div class="dropdown-menu dropdown-menu-lg-right" style="margin-right: 30px">
+              <div *ngIf="notLogged()" class="dropdown-item"><a routerLink="login">Вход</a> | <a routerLink="registration">Регистрация</a></div>
+
+              <a *ngIf="isLogged()"routerLink="profile" class="dropdown-item">Профиль</a>
+              <a *ngIf="isLogged()"routerLink="orders" class="dropdown-item">Заказы</a>
+              <a *ngIf="isLogged()" (click)="logout()" class="dropdown-item">Выход</a>
+
+            </div>
+          </li>   
+        <li class="nav-item">
+            <a routerLink="cart" class="nav-link" routerLinkActive="active">
+                <mdb-icon  style="font-size: 30px; color: white;" fas icon="shopping-cart"></mdb-icon>
+          </a>
+          <span *ngIf="isLogged()" style="
+          position: absolute;
+          z-index: 2;
+          margin-top: -15px;
+          margin-left: 20px;
+          border-radius: 10em;
+          padding: 0 5px;
+          background-color: #e00000;
+          font-size: 10px;
+          color: #fff;
+          left: auto;
+          font-weight: bold">{{cartCount}}</span>
+        </li>
+      </ul>
+  </div>
+</div>
+</nav>
