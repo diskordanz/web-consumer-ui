@@ -97,6 +97,7 @@ export class CartItem {
 export class CartItemByFranchise {
   franchise_id: number;
   franchise_name: string;
+  
   cart_items: Array<CartItem>;
   total: number;
 }

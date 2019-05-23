@@ -32,12 +32,10 @@ export class CommonService {
   }
 
   listProducts(name: string, count: number, offset: number) {
-    let tokenHeader = {headers: {'Token':localStorage.getItem('token')}}
     return this.http.get(`${this.uri}/products?count=${count}&offset=${offset}&name=${name}`);
   }
 
   listProductsByCategory(id: number, name: string,count: number, offset: number) {
-    let tokenHeader = {headers: {'Token':localStorage.getItem('token')}}
     return this.http.get(`${this.uri}/categories/${id}/products?count=${count}&offset=${offset}&name=${name}`);
   }
  

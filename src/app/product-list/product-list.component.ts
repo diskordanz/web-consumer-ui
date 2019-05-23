@@ -27,13 +27,13 @@ export class ProductListComponent implements OnInit {
   public pathToImage = pathToImage;
 
   ngOnInit() {
+    console.log("hi")
     this.state$ = this.router.paramMap
     .pipe(map(() => window.history.state))
 
     if(window.history.state.category_id){
 
       if(window.history.state.category_id == 1){
-
       this.s.listProducts(window.history.state.name, 20,0)
       .subscribe((data: Product[]) => {
         this.products = data;});
@@ -51,9 +51,7 @@ export class ProductListComponent implements OnInit {
   }
 }
 
-
   addToCart(product: Product){
-
     this.item = {
         id: 0,
         consumer_id: this.auth.getUserID(localStorage.getItem('token')),
@@ -77,34 +75,6 @@ export class ProductListComponent implements OnInit {
           this.item2 = data;
         console.log("update"); 
       });
-    }
-    });
-      
-
-     
-      
-      
-      /*subscribe((data :CartItem)=> {
-        this.item = data;
-        this.item.count++;
-        this.s.updateCartItem(this.item).subscribe((data :CartItem) => {
-          this.item = data});
-        console.log("update"); 
-        console.log(this.item);
-        this.onDestroy()
-      });
-
-      console.log(this.item);
-
-      if(this.subscription == null){
-        this.s.createCartItem(this.item).subscribe((data :CartItem) => {
-        this.item = data;}).unsubscribe();
-        console.log("create");
-      }*/
-
+    }});
   } 
-  onDestroy(){
-    this.subscription.unsubscribe();
-    this.subscription = null; 
-  }
 }

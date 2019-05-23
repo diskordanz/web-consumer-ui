@@ -2,31 +2,60 @@
     <div class="col-sm-3" style="margin:0; padding:0;height:100%;">
         <table class="table table-bordered table-hover" style="margin:0; padding:0;">
             <tbody>
-            <tr *ngFor="let category of categories" style="" >
+            <tr *ngFor="let category of categories" (click)="search(category)" style="cursor:pointer;">
                 <td style="font-size: 20px;padding:10px;" >{{category.name}}</td>
             </tr>
             </tbody>
         </table>
     </div>
 <div class="col-sm-9" style="margin:0; padding:0;">
-<mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" >
-    <mdb-carousel-item>
-        <div style="height:590px;width: 100%; overflow:hidden;margin:0;">
-      <img style="width: 100%; display:block;" src="http://gomelsale.by/salebook/euroopt/0605_evroopt_03.jpg">
-    </div>
-    </mdb-carousel-item>
-    <mdb-carousel-item>
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
             <div style="height:590px;width: 100%; overflow:hidden;margin:0;">
+                <img style="width: 100%; display:block;" src="https://mojaakcija.by/public/gimg/4/7/8/7/5/47875-950-100000.jpg">
+              </div>
+        </div>
+
+        <div class="carousel-item">
+            <div style="height:590px;width: 100%; overflow:hidden;margin:0;">
+                <img style="width: 100%; display:block;" src="http://gomelsale.by/salebook/gippo/1605_gippo_01.jpg">
+              </div>
+        </div>
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+
+    <!-- <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" >
+    <mdb-carousel-item>
+      <div style="height:590px;width: 100%; overflow:hidden;margin:0;">
       <img style="width: 100%; display:block;" src="http://gomelsale.by/salebook/gippo/1605_gippo_01.jpg">
     </div>
-
     </mdb-carousel-item>
+    
     <mdb-carousel-item>
-            <div style="height:590px;width:100%; overflow:hidden;margin:0;">
-      <img style="width: 100%; display:block;" src="http://gomelsale.by/salebook/5element/3004_5element_01.jpg">
+      <div style="height:590px;width: 100%; overflow:hidden;margin:0;">
+      <img style="width: 100%; display:block;" src="http://gomelsale.by/salebook/gippo/1605_gippo_01.jpg">
     </div>
-
     </mdb-carousel-item>
-  </mdb-carousel>
+
+    <mdb-carousel-item>
+      <div style="height:590px;width: 100%; overflow:hidden;margin:0;">
+      <img style="width: 100%; display:block;" src="http://gomelsale.by/salebook/gippo/1605_gippo_01.jpg">
+    </div>
+    </mdb-carousel-item>
+
+  </mdb-carousel> -->
 </div>
 </div>
