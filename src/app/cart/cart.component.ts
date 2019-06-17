@@ -86,4 +86,7 @@ total(items: CartItem[]) : number{
 return sum;
 }
 
+public getFranchise(text) {
+  this.router.navigateByUrl('/franchises/'+text);  
+}
 }

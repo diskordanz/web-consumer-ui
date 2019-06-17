@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../services/common.service';
 import { Product, CartItem } from '../models';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
@@ -23,11 +23,11 @@ export class ProductListComponent implements OnInit {
   item2: CartItem;
   subscription: Subscription;
 
-  constructor(private http: HttpClient, public router: ActivatedRoute, private s: CommonService, private auth: AuthService) { }
+  
+  constructor(private http: HttpClient, public router: ActivatedRoute, private s: CommonService, private auth: AuthService, private rout: Router,) { }
   public pathToImage = pathToImage;
 
   ngOnInit() {
-    console.log("hi")
     this.state$ = this.router.paramMap
     .pipe(map(() => window.history.state))
 
@@ -77,4 +77,8 @@ export class ProductListComponent implements OnInit {
       });
     }});
   } 
+
+  public getFranchise(text) {
+    this.rout.navigateByUrl('/franchises/'+text);  
+}
 }

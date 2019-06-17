@@ -1,9 +1,9 @@
-<div *ngIf="cart" style="margin:50px 0;font-family: 'Courier New', Courier, monospace; width: 100%;" >
+<div *ngIf="cart" style="margin:0px 0;font-family: 'Courier New', Courier, monospace; width: 100%;" >
 <div *ngFor="let franchise_item of cart">
 <table class="table table-hover">
   <thead>
     <tr>
-      <td><h4>{{franchise_item.franchise_name}}</h4></td>
+      <td style="cursor: pointer;" (click)="getFranchise(franchise_item.franchise_id)"><img class="img-fluid" style="width: 100px;" src={{pathToImage}}{{franchise_item.franchise_image}}/></td>
       <td></td>
       <td></td>
       <td></td>
@@ -14,8 +14,8 @@
 
   <tbody>
       <tr *ngFor="let cart_item of franchise_item.cart_items">
-          <td (click)="getProduct(cart_item.product.id)"><img class="img-fluid" style="width: 130px;" src={{pathToImage}}{{cart_item.product.image}}/></td>
-          <td (click)="getProduct(cart_item.product.id)" style="padding: 43px 0;font-size: 18px">{{ cart_item.product.name}}</td>
+          <td style="cursor: pointer;" (click)="getProduct(cart_item.product.id)"><img class="img-fluid" style="width: 130px;" src={{pathToImage}}{{cart_item.product.image}}/></td>
+          <td style="cursor: pointer;" (click)="getProduct(cart_item.product.id)" style="padding: 43px 0;font-size: 18px">{{ cart_item.product.name}}</td>
           <td style="padding: 43px 20px;font-size: 18px" >BYN {{ cart_item.product.price}}</td>
           <td style="font-size: 18px; padding: 40px 25px;"><a (click)="delItem(cart_item)" style="border-radius: 1rem; background-color: teal;padding: 1px 5px 0 5px; color: white; font-size: 15px;" type="button">-</a>
           {{ cart_item.count }} <a (click)="addItem(cart_item)" style="border-radius: 1rem; background-color: teal; padding: 2px 6px 0 5px; color: white; font-size: 15px;" type="button">+</a></td>

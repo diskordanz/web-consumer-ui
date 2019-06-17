@@ -31,13 +31,7 @@ export class HeaderComponent implements OnInit {
   notLogged(){
     return localStorage.getItem('token') == null
   }
-  ngOnInit() {
-    var id = this.auth.getUserID(localStorage.getItem('token')) 
-    this.s.getCart(id, 50, 0).subscribe((data: CartItemByFranchise[]) => {
-      this.cart = data;
-      this.cartCount = this.count(this.cart);
-    });
-
+  ngOnInit() { 
     this.selectedCategory ={
       id: 0,
       name: 'All categories'};
@@ -48,6 +42,13 @@ export class HeaderComponent implements OnInit {
         this.categories = data;
         this.selectedCategory=this.categories[0];
     });
+        
+    if (!this.auth.isLogged()) {
+      var id = this.auth.getUserID(localStorage.getItem('token')) 
+      this.s.getCart(id, 50, 0).subscribe((data: CartItemByFranchise[]) => {
+      this.cart = data;
+      this.cartCount = this.count(this.cart);
+    });}
   }
 
   public selectCategory(newCategory) {

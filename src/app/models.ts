@@ -30,6 +30,7 @@ export class Product{
   description: string;
   image: string;
   franchise_id: number;
+  franchise_image: string;
   //location_id: Int32Array; or count on each location
   count: number;
   price: number;
@@ -97,7 +98,8 @@ export class CartItem {
 export class CartItemByFranchise {
   franchise_id: number;
   franchise_name: string;
-  
+  franchise_image: string;
+
   cart_items: Array<CartItem>;
   total: number;
 }

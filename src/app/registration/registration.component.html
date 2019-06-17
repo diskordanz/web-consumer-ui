@@ -1,38 +1,38 @@
 <form class="form-group" style="margin: 5% 15%; font-family: 'Courier New', Courier, monospace;">
   <div class="text-center">
-    <h1 class="h3 font-weight-normal" style="margin: 30px;">Registration</h1>
+    <h1 class="h3 font-weight-normal" style="margin: 30px;">Регистрация</h1>
   </div>
 
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">First Name</label>
+    <label class="col-sm-3 col-form-label">Имя</label>
     <div class="col-sm-9">
     <input [(ngModel)]="user.first_name" class="form-control" placeholder="First Name" required="" autofocus="">
   </div>
 </div>
 
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Last Name</label>
+    <label class="col-sm-3 col-form-label">Фамилия</label>
     <div class="col-sm-9">
       <input [(ngModel)]="user.last_name" class="form-control" placeholder="Last Name" required="" autofocus="">
   </div>
 </div>
 
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">City</label>
+    <label class="col-sm-3 col-form-label">Город</label>
     <div class="col-sm-9">
       <input [(ngModel)]="user.city" class="form-control" placeholder="City" required="" autofocus="">
   </div>
 </div>
 
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Address</label>
+    <label class="col-sm-3 col-form-label">Адрес</label>
     <div class="col-sm-9">
       <input [(ngModel)]="user.address" class="form-control" placeholder="Address" required="" autofocus="">
   </div>
 </div>
 
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Phone Number</label>
+    <label class="col-sm-3 col-form-label">Телефон</label>
     <div class="col-sm-9">
       <input [(ngModel)]="user.phone_number" class="form-control" placeholder="Phone Number" required="" autofocus="">
   </div>
@@ -46,18 +46,18 @@
 </div>
 
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Login</label>
+    <label class="col-sm-3 col-form-label">Логин</label>
     <div class="col-sm-9">
       <input [(ngModel)]="user.login" class="form-control" placeholder="Login" required="" autofocus="">
   </div>
 </div>
 
   <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Password</label>
+    <label class="col-sm-3 col-form-label">Пароль</label>
     <div class="col-sm-9">
       <input [(ngModel)]="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
   </div>
 </div>
 
-  <button (click)="createUser()" type="submit" class="btn btn-lg btn-primary btn-block" style="margin: 40px 35%; width: 30%; font-family: 'Courier New', Courier, monospace; background-color: black; border-color: black;" type="submit">Sign Up</button>
+  <button (click)="createUser()" type="submit" class="btn btn-lg btn-block" style="margin: 40px 35%; width: 30%; font-family: 'Courier New', Courier, monospace; background-color: black; border-color: black;color: white; font-weight: bold;" type="submit">Sign Up</button>
 </form>

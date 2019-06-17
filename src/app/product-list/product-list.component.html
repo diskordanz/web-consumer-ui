@@ -1,7 +1,29 @@
+
 <table class="table table-hover" style="font-family: 'Courier New', Courier, monospace" >
   <thead>
     <tr>
-      <td></td>
+      <td><div style="display: flex;">
+        <div class="dropdown" mdbDropdown>
+      
+          <button mdbDropdownToggle mdbBtn color="dark" class="dropdown-toggle waves-light" type="button"
+            mdbWavesEffect>
+            Сортировать
+          </button>
+        
+        
+          <div class="dropdown-menu dropdown-primary">
+            <a class="dropdown-item" href="#">Возрастанию цены</a>
+            <a class="dropdown-item" href="#">Убыванию цены</a>
+          </div>
+        </div>
+
+        <div>
+          <input type="range" min="min" max="max" [value]="currentValueMin" class="slider">
+          <input type="range" min="min" max="max" [value]="currentValueMax" class="slider">        </div>
+        
+      </div>
+
+    </td>
       <td></td>
       <td></td>
       <td></td>
@@ -11,9 +33,35 @@
   <tbody>
       <tr *ngFor="let product of products">
         <td  [routerLink]="[product.id]"><img class="img-fluid" style="width: 130px; cursor: pointer;" src={{pathToImage}}{{product.image}}/></td>
-        <td  [routerLink]="[product.id]" style="padding-top:50px; cursor: pointer;">{{product.name}}</td>
-        <td style="padding-top:50px;">BYN {{product.price}}</td>
-        <td style="padding-top:50px;"><button class="btn btn-danger" (click)="addToCart(product)">Add to Cart</button></td>
+
+        <td><div (click)="getFranchise(product.franchise_id)" style="padding-top:10px; cursor: pointer;"><img class="img-fluid" style="width: 80px; cursor: pointer;" src={{pathToImage}}{{product.franchise_image}}/></div>
+          <div [routerLink]="[product.id]" style="padding-top:15px; cursor: pointer;font-weight: bold;">{{product.name}}</div>
+        </td>
+
+        <td style="padding-top:50px; font-weight: bold;font-size: 20px">BYN {{product.price}}</td>
+        <td style="padding-top:38px;"><a (click)="addToCart(product)" class="btn" style="font-size:15px; color:white; border-radius: 0.5rem; background-color: rgb(248, 41, 41);font-weight: bold;">В КОРЗИНУ</a></td>
       </tr>
   </tbody>
 </table>
+
+<nav style="display:flex; justify-content:center;">
+  <ul class="pagination pg-dark">
+    <li class="page-item">
+      <a class="page-link" aria-label="Previous" mdbWavesEffect>
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item active"><a class="page-link" mdbWavesEffect>1</a></li>
+    <li class="page-item"><a class="page-link" mdbWavesEffect>2</a></li>
+    <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
+    <li class="page-item"><a class="page-link" mdbWavesEffect>4</a></li>
+    <li class="page-item"><a class="page-link" mdbWavesEffect>5</a></li>
+    <li class="page-item">
+      <a class="page-link" aria-label="Next" mdbWavesEffect>
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
